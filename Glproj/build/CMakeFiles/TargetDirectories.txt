@@ -1,3 +1,0 @@
-/home/gabrax/Glproj/build/CMakeFiles/OPENGL_proj.dir
-/home/gabrax/Glproj/build/CMakeFiles/edit_cache.dir
-/home/gabrax/Glproj/build/CMakeFiles/rebuild_cache.dir
