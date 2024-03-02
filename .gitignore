@@ -1,3 +1,6 @@
-# Ignore files with extension `.class` & `.exe`
+# Ignore files 
 *.class
 *.exe
+
+# Ignore dir
+.vscode/
