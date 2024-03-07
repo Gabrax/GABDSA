@@ -3,61 +3,34 @@
 #include <algorithm>
 #include <string>
 
+std::string MakeTime(std::vector<int>& arr)
+{
+    std::sort(arr.begin(), arr.end());
+    std::string TheZeroHour = "00:00";
 
+    while(std::next_permutation(arr.begin(),arr.end()))
+    {
+        std::string newTime = std::to_string(arr[0]) + std::to_string(arr[1]) + ":" + std::to_string(arr[2]) + std::to_string(arr[3]);
+        if(std::stoi(newTime.substr(0, 2)) <= 23 && std::stoi(newTime.substr(3, 4)) <= 59 && newTime > TheZeroHour)
+        {
+            TheZeroHour = newTime;
+        }
+    }
+    return TheZeroHour;
+}
 
 int main()
 {
-    unsigned int a,b,c,d;
-    std::cin >> a >> b >> c >> d;
-    std::vector<unsigned int> arr;
-    arr.push_back(a);
-    arr.push_back(b);
-    arr.push_back(c);
-    arr.push_back(d);
-
-    std::sort(arr.begin(),arr.end());
-
-    for(int i = arr.size(); i > 0;i--)
+    int n,k;
+    std::vector<int> arr;
+    std::cin >> n;
+    for(int i = 0; i < n;i++)
     {
-        if(arr[i] == 2)
-        {
-            a = arr[i];
-        }
-        else if(arr[i] <= 2)
-        {
-            a = arr[i];
-        }
+        std::cin >> k;
+        arr.push_back(k);
     }
 
-    for(int i = arr.size(); i > 0;i--)
-    {
-        if(arr[i] <= 3 && arr[i] != 2)
-        {
-            b = arr[i];
-        }
-        
-    }
-
-    for(int i = arr.size(); i > 0;i--)
-    {
-        if(arr[i] <= 5 && arr[i] != 2)
-        {
-            c = arr[i];
-        }
-        
-    }
-    for(int i = arr.size(); i > 0;i--)
-    {
-        if(arr[i] <= 9 && arr[i] > 5)
-        {
-            d = arr[i];
-        }
-        
-    }
-
-
-
-    std::cout << a << b << ":" << c << d << '\n';
+    std::cout << MakeTime(arr) << '\n';
 
     std::cin.get();    
 }
