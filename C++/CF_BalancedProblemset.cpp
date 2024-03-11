@@ -2,8 +2,6 @@
 #include <numeric>
 
 
-
-
 int main()
 {
     
