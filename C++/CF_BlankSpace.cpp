@@ -24,10 +24,15 @@ int main()
                 res++;
             }
             else{
-                longest = res;
+                if(res > longest)
+                {
+                    longest = res;
+                }
+                res = 0;
             }
-            
-            
+        }
+        if(res > longest){
+            longest = res;
         }
         std::cout << longest << '\n';
         
