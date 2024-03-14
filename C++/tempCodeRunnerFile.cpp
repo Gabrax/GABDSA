@@ -1,38 +1,42 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <algorithm>
+
 int main()
 {
-    int t;
-    std::cin >> t;
-    while(t--)
+int t;
+std::cin >> t;
+while(t--){
+    int n;
+    std::cin >> n;
+    std::vector<long long> arr(n);
+    for(int i = 0;i < n;i++)
     {
-        int res = 0;
-        int longest = 0;
-        std::vector<int> arr;
-        int n;
-        std::cin >> n;
-        int x;
-        for(int i =0;i <n;i++)
+        std::cin >> arr[i];
+    }
+    int count = 0;
+    if(std::is_sorted(arr.begin(),arr.end()) != true)
+    {
+        std::cout << 0 << '\n';
+    }else{
+        for(int i = 0;i < arr.size();i++)
         {
-            std::cin >> x;
-            arr.push_back(x);
-        }
-        for(int i =0;i <arr.size();i++)
-        {
-            if(arr[i] == 0)
-            {
-                res++;
-            }
-            else{
-                longest = res;
-            }
             
-            
-        }
-        std::cout << longest << '\n';
-        
+                arr[arr.size()-2] += 1;
+                arr[arr.size()-1] -= 1;
+                count++;
+                if(std::is_sorted(arr.begin(),arr.end()) != true)
+                {
+                    std::cout << count << '\n';
+                    break;
+                }
+        }    
     }
 
+    
+} 
 
-    std::cin.get();
+
+std::cin.get();
 }
