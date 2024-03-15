@@ -4,8 +4,6 @@
 #include <algorithm>
 #include <unordered_map>
 
-
-
 int main()
 {
     int t;
