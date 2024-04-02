@@ -9,6 +9,7 @@
 #include <stack>
 #include <queue>
 #include <cctype>
+
 unsigned int find_max(const std::vector<unsigned int>& arr){
     unsigned int max = arr[0];
 

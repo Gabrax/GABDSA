@@ -13,7 +13,7 @@
 bool repeatedSubstringPattern(std::string& s) {
     int n = s.length();
     for (int i = 1; i <= n / 2; ++i) {
-        if (n % i == 0) {  // Check if i is a divisor of n
+        if (n % i == 0) {  
             std::string substring = s.substr(0, i);
             std::string concat;
             for (size_t j = 0; j < n/i; j++)
@@ -21,7 +21,7 @@ bool repeatedSubstringPattern(std::string& s) {
                 concat.append(substring);
             }
             
-            if (concat == s) {  // Check if the string can be formed by repeating the substring
+            if (concat == s) {  
                 return true;
             }
         }

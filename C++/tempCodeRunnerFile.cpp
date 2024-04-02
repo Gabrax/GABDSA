@@ -1,2 +1,2 @@
 
-    std::cout << std::endl;
+        for(int i = 1; i < nums.size(); i++){
