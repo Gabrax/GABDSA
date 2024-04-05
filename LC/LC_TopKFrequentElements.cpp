@@ -21,16 +21,18 @@ std::vector<int> topKFrequent(std::vector<int>& nums, int k) {
         
         std::map<int,int> map;
         for(const auto& i : nums){
-            map[i]++;
+            map[i]++; // appends the numbers from int and coutns their occurence
         }
 
-        std::vector<std::pair<int, int>> freq_vec(map.begin(), map.end());
-        std::partial_sort(freq_vec.begin(), freq_vec.begin() + k, freq_vec.end(), compare);
+        std::vector<std::pair<int, int>> freq_vec(map.begin(), map.end());//This line initializes freq_vec with the elements of the map. It copies all key-value pairs from map into freq_vec
+        std::partial_sort(freq_vec.begin(), freq_vec.begin() + k, freq_vec.end(), [](const std::pair<int, int>& a, const std::pair<int, int>& b){
+            return a.second > b.second;
+        });//sort first k elements, but with lambda function it compare second value of each pair in descending order
 
         std::vector<int> res;
         for (int i = 0; i < k; i++)
         {
-            res.push_back(freq_vec[i].first);
+            res.push_back(freq_vec[i].first); // pushes on end keys from map to vector
         }
         
         return res;
