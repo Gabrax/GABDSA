@@ -21,20 +21,24 @@ public:
     
     void push(int val) {
         st1.push(val);
-        if(st2.size()==0 || val<=getMin())st2.push(val);
+        if(st2.size()==0 || val<=getMin()){ // jesli rozmiar st2 rowne zero albo value jest mniejsze badz rowne wartosi na górze stacku, push value do st2
+            st2.push(val);
+        }
     }
     
     void pop() {
-        if(st1.top()==getMin())st2.pop();
-        st1.pop();
+        if(st1.top()==getMin()){ // jesli na gorze stacku st1 jest rowna gorze st2, wyrzuc z stacka st2
+            st2.pop();
+        }
+        st1.pop(); // wyrzuc z stack st1
     }
     
     int top() {
-        return st1.top();
+        return st1.top(); // zwroc wartosc na gorze st1
     }
     
     int getMin() {
-        return st2.top();
+        return st2.top(); // zwroc wartosc na gorze st2
     }
 };
 
