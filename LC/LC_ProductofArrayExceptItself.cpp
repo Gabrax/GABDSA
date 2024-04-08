@@ -14,7 +14,7 @@
 std::vector<int> productExceptSelf(std::vector<int>& nums) {
     std::ios::sync_with_stdio(0);
     std::cin.tie(0);
-        std::vector<int> res(nums.size(),1);
+        std::vector<int> res(nums.size(),1); //size equal to the size of another vector nums, and initializes each element of res to 1.
 
         int prefix = 1;
         for (int i = 0; i < nums.size(); i++)
