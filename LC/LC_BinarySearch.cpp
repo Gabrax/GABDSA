@@ -34,9 +34,9 @@ int main(){
 
    std::vector<int> nums = {5};
     int x = 5;
+    
 
    std::cout << search(nums,x) << '\n';
-   
-
+  
     std::cin.get();
 }
