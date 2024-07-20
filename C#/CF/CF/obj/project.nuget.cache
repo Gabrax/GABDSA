@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "icQu6Nk3l5itQKs49/rvJDSwvW43UoHCnGO8cOVXAx7tJqDDyOp5tmw6+50o8LCgKFB6Z1oCkcg79nJ8+iMBYw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gab-o\\Documents\\GitHub\\Prog_Tasks\\C#\\CF\\CF\\CF.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gab-o\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\8.0.1\\microsoft.dotnet.ilcompiler.8.0.1.nupkg.sha512",
+    "C:\\Users\\gab-o\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.1\\microsoft.net.illink.tasks.8.0.1.nupkg.sha512",
+    "C:\\Users\\gab-o\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\8.0.1\\runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

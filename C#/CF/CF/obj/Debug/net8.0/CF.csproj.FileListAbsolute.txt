@@ -1,0 +1,15 @@
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\bin\Debug\net8.0\CF.exe
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\bin\Debug\net8.0\CF.deps.json
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\bin\Debug\net8.0\CF.runtimeconfig.json
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\bin\Debug\net8.0\CF.dll
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\bin\Debug\net8.0\CF.pdb
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.AssemblyInfoInputs.cache
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.AssemblyInfo.cs
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.csproj.CoreCompileInputs.cache
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.sourcelink.json
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.dll
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\refint\CF.dll
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.pdb
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\CF.genruntimeconfig.cache
+C:\Users\gab-o\Documents\GitHub\Prog_Tasks\C#\CF\CF\obj\Debug\net8.0\ref\CF.dll
