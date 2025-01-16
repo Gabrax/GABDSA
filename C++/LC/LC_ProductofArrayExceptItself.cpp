@@ -24,7 +24,7 @@ std::vector<int> productExceptSelf(std::vector<int>& nums) {
 
 int main(){
 
-  std::vector<int> nums = {1,2,3,4};
+  std::vector<int> nums = {1,2,4,6};
   std::vector<int> res = productExceptSelf(nums);
   for(const auto& i : res){
     std::cout << i << " ";
