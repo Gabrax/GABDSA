@@ -13,48 +13,36 @@
 #include <limits>
 
 std::vector<std::vector<int>> threeSum(std::vector<int>& nums) {
-        std::sort(nums.begin(),nums.end());
-        std::vector<std::vector<int>> res;
+    std::vector<std::vector<int>> result;
+    std::sort(nums.begin(), nums.end());  // Step 1: Sort the array
 
-        if(nums.size() < 3){
-            return res;
-        }
+    for (size_t i = 0; i < nums.size(); i++) {
+        if (i > 0 && nums[i] == nums[i - 1]) continue;  // Skip duplicates
 
-        for (int i = 0; i < nums.size()-2; i++)
-        {
-            if(nums[i] > 0) break;
-            
-            if(i > 0 && nums[i-1] == nums[i]) continue;
+        int left = i + 1, right = nums.size() - 1;
 
-            int j = i + 1;
-            int k = nums.size()-1;
+        while (left < right) {
+            int sum = nums[i] + nums[left] + nums[right];
 
-            while(j < k){
-                int sum = nums[i] + nums[j] + nums[k];
+            if (sum == 0) {
+                result.push_back({nums[i], nums[left], nums[right]});
+                left++;
+                right--;
 
-                    if(sum < 0)j++;
-                    else if(sum > 0) k--;
-                    else
-                    {
-                        res.push_back({nums[i], nums[j],nums[k]});
-
-                        while(j < k && nums[j] == nums[j + 1]){
-                            j++;
-                        }
-                        j++;
-                        while(j < k && nums[k - 1] == nums[k]){
-                            k--;
-                        }
-                        k--;
-                    }
+                // Skip duplicate values
+                while (left < right && nums[left] == nums[left - 1]) left++;
+                while (left < right && nums[right] == nums[right + 1]) right--;
             }
+            else if (sum < 0) left++;  // Move left pointer to increase sum
+            else right--;  // Move right pointer to decrease sum
         }
-    return res;
+    }
+
+    return result;
 }
 
-int main(){
-
-
+int main()
+{
 
     return 0;
 }

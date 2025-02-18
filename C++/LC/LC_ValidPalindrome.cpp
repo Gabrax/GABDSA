@@ -11,23 +11,16 @@
 #include <cctype>
 #include <limits>
 
-bool isPalindrome(std::string& str){
-    std::string res;
-    std::string new_str;
+bool isPalindrome(std::string& s)
+{    
+    std::string str = "";
+    for (const auto& i : s) if (std::isalnum(i)) str += std::tolower(i);
 
-    for (char c : str) {
-        if (std::isalnum(c)) { // Check if character is alphanumeric = without spaces and non-alphabetic characters
-            res += std::tolower(c);
-        }
-    }
-    for (char c : str) {
-        if (std::isalnum(c)) {
-            new_str += std::tolower(c);
-        }
-    }
-    std::reverse(res.begin(),res.end());
+    std::string res = str;
 
-    return res == new_str; //returns true if strings are the same, otherwise its false
+    std::reverse(res.begin(), res.end());
+
+    return str == res;
 }
 
 int main(){
