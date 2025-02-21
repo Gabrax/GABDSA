@@ -8,6 +8,7 @@
 #include <array>
 #include <algorithm>
 #include <unordered_map>
+#include <stack>
  
 int main() {
     std::cin.tie(0)->sync_with_stdio(0);
@@ -15,7 +16,11 @@ int main() {
     int32_t T;
     std::cin >> T;
 
-    if(T % 2 == 0) std::cout << 4 << " "<< T-4 << '\n';
-    else std::cout << 9 << " " <<  T-9 << '\n';
+    while(T--){
+      int32_t a,b,c;
+      std::cin >> a >> b >> c;
+      if(a + b >= 10 || a + c >= 10 || b + c >= 10) puts("YES");
+      else puts("NO");
+    }
     
 }

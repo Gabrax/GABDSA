@@ -12,10 +12,15 @@
 int main() {
     std::cin.tie(0)->sync_with_stdio(0);
 
-    int32_t T;
-    std::cin >> T;
+    int32_t T,N;
+    std::cin >> T >> N;
 
-    if(T % 2 == 0) std::cout << 4 << " "<< T-4 << '\n';
-    else std::cout << 9 << " " <<  T-9 << '\n';
+    int32_t res = 0, pass = 5 - N;
+    while(T--){
+      int32_t x;
+      std::cin >> x;
+      if(x <= pass) res++;
+    }
+    std::cout << res / 3 << '\n';
     
 }
