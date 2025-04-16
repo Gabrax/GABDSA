@@ -8,7 +8,7 @@ int main()
   
   int n,m; std::cin >> n >> m;
   std::vector<int> tasks(m);
-  for(int i = 0;i<m;++i) std::cin >> tasks[m];
+  for(int i = 0;i<m;++i) std::cin >> tasks[i];
 
   long long time = 0;
   int current = 1; 

@@ -1,3 +1,4 @@
+#include <limits.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -6,7 +7,7 @@
 
 bool containsDuplicate(int* nums, int numsSize) {
 
-    int hashTableSize = 2000000001;  
+    int hashTableSize = INT_MAX;  
     bool* hashTable = (bool*)calloc(hashTableSize, sizeof(bool));  
     
     for (int i = 0; i < numsSize; i++) {
