@@ -20,58 +20,53 @@
 //
 //The process continues until the queue is empty.
 
-using namespace std;
 
-class Graph {
-public:
-    Graph(int vertices);
-    void addEdge(int v, int w);
-    void BFS(int startVertex);
+struct Graph
+{
+    Graph(int vertices) : vertices(vertices) {
+      adjacencyList.resize(vertices);
+    }
+
+    void addEdge(int v, int w){
+      adjacencyList[v].push_back(w);
+    }
+
+    void BFS(int startVertex){
+            // Create an array to keep track of visited vertices
+      std::vector<bool> visited(vertices, false);
+
+      // Create a queue for BFS
+      std::queue<int> queue;
+
+      // Mark the current node as visited and enqueue it
+      visited[startVertex] = true;
+      queue.push(startVertex);
+
+      while (!queue.empty()) {
+          // Dequeue a vertex from the queue and print it
+          int currentVertex = queue.front();
+          std::cout << currentVertex << " ";
+          queue.pop();
+
+          // Get all adjacent vertices of the dequeued vertex
+          // If an adjacent vertex has not been visited, mark it
+          // visited and enqueue it
+          for (int adjacentVertex : adjacencyList[currentVertex]) {
+              if (!visited[adjacentVertex]) {
+                  visited[adjacentVertex] = true;
+                  queue.push(adjacentVertex);
+              }
+          }
+      }
+    }
 
 private:
     int vertices;
-    vector<vector<int>> adjacencyList;
+    std::vector<std::vector<int>> adjacencyList;
 };
 
-Graph::Graph(int vertices) {
-    this->vertices = vertices;
-    adjacencyList.resize(vertices);
-}
-
-void Graph::addEdge(int v, int w) {
-    adjacencyList[v].push_back(w);
-}
-
-void Graph::BFS(int startVertex) {
-    // Create an array to keep track of visited vertices
-    vector<bool> visited(vertices, false);
-
-    // Create a queue for BFS
-    queue<int> queue;
-
-    // Mark the current node as visited and enqueue it
-    visited[startVertex] = true;
-    queue.push(startVertex);
-
-    while (!queue.empty()) {
-        // Dequeue a vertex from the queue and print it
-        int currentVertex = queue.front();
-        cout << currentVertex << " ";
-        queue.pop();
-
-        // Get all adjacent vertices of the dequeued vertex
-        // If an adjacent vertex has not been visited, mark it
-        // visited and enqueue it
-        for (int adjacentVertex : adjacencyList[currentVertex]) {
-            if (!visited[adjacentVertex]) {
-                visited[adjacentVertex] = true;
-                queue.push(adjacentVertex);
-            }
-        }
-    }
-}
-
-int main() {
+int main()
+{
     Graph g(6);
     g.addEdge(0, 1);
     g.addEdge(0, 2);
@@ -79,8 +74,6 @@ int main() {
     g.addEdge(2, 4);
     g.addEdge(2, 5);
 
-    cout << "Breadth-First Traversal starting from vertex 0: ";
+    std::cout << "Breadth-First Traversal starting from vertex 0: ";
     g.BFS(0);
-
-    return 0;
 }

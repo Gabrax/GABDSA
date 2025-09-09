@@ -3,59 +3,183 @@
 #include <vector>
 
 struct TreeNode {
-    int data;
+    int value;
     TreeNode* left;
     TreeNode* right;
 
     TreeNode(int value) {
-        data = value;
+        this->value = value;
         left = nullptr;
         right = nullptr;
     }
 };
 
 struct BinarySearchTree {
-  public:
-    BinarySearchTree() {
-        root = nullptr;
-    }
+public:
+    BinarySearchTree() : root(nullptr) {}
 
     void insert(int value) {
         root = insertRec(root, value);
     }
 
-    TreeNode* insertRec(TreeNode* root, int value) {
-        if (root == nullptr) {
-            return new TreeNode(value);
+    void inorder() {
+        inorderRec(root);
+        std::cout << std::endl;
+    }
+
+    void preorder() {
+        preorderRec(root);
+        std::cout << std::endl;
+    }
+
+    void postorder() {
+        postorderRec(root);
+        std::cout << std::endl;
+    }
+
+    int successor(int x) {
+        TreeNode* node = find(root, x);
+        if (node == nullptr) return -1;
+        TreeNode* succ = nullptr;
+
+        if (node->right) {
+            succ = minValueNode(node->right);
+        } else {
+            TreeNode* ancestor = root;
+            while (ancestor != node) {
+                if (x < ancestor->value) {
+                    succ = ancestor;
+                    ancestor = ancestor->left;
+                } else {
+                    ancestor = ancestor->right;
+                }
+            }
         }
 
-        if (value < root->data) {
-            root->left = insertRec(root->left, value);
+        return succ ? succ->value : -1;
+    }
+
+    int predecessor(int x) {
+        TreeNode* node = find(root, x);
+        if (node == nullptr) return -1;
+        TreeNode* pred = nullptr;
+
+        if (node->left) {
+            pred = maxValueNode(node->left);
+        } else {
+            TreeNode* ancestor = root;
+            while (ancestor != node) {
+                if (x > ancestor->value) {
+                    pred = ancestor;
+                    ancestor = ancestor->right;
+                } else {
+                    ancestor = ancestor->left;
+                }
+            }
         }
-        else if (value > root->data) {
-            root->right = insertRec(root->right, value);
+
+        return pred ? pred->value : -1;
+    }
+
+    bool search(int value) {
+        return find(root, value) != nullptr;
+    }
+
+    void remove(int value) {
+        root = removeRec(root, value);
+    }
+
+private:
+    TreeNode* root;
+
+    TreeNode* insertRec(TreeNode* root, int newValue) {
+        if (root == nullptr) {
+            return new TreeNode(newValue);
+        }
+
+        if (newValue < root->value) {
+            root->left = insertRec(root->left, newValue);
+        } else if (newValue > root->value) {
+            root->right = insertRec(root->right, newValue);
         }
 
         return root;
     }
 
-    void inorder() {
-        inorderRec(root);
-    }
-
     void inorderRec(TreeNode* root) {
         if (root != nullptr) {
             inorderRec(root->left);
-            std::cout << root->data << " ";
+            std::cout << root->value << " ";
             inorderRec(root->right);
         }
     }
 
-  private:
-    TreeNode* root;
+    void preorderRec(TreeNode* root) {
+        if (root != nullptr) {
+            std::cout << root->value << " ";
+            preorderRec(root->left);
+            preorderRec(root->right);
+        }
+    }
 
+    void postorderRec(TreeNode* root) {
+        if (root != nullptr) {
+            postorderRec(root->left);
+            postorderRec(root->right);
+            std::cout << root->value << " ";
+        }
+    }
+
+    TreeNode* find(TreeNode* root, int value) {
+        if (root == nullptr || root->value == value)
+            return root;
+
+        if (value < root->value)
+            return find(root->left, value);
+        else
+            return find(root->right, value);
+    }
+
+    TreeNode* minValueNode(TreeNode* node) {
+        TreeNode* current = node;
+        while (current && current->left != nullptr)
+            current = current->left;
+        return current;
+    }
+
+    TreeNode* maxValueNode(TreeNode* node) {
+        TreeNode* current = node;
+        while (current && current->right != nullptr)
+            current = current->right;
+        return current;
+    }
+
+    TreeNode* removeRec(TreeNode* root, int key) {
+        if (root == nullptr)
+            return root;
+
+        if (key < root->value) {
+            root->left = removeRec(root->left, key);
+        } else if (key > root->value) {
+            root->right = removeRec(root->right, key);
+        } else {
+            if (root->left == nullptr) {
+                TreeNode* temp = root->right;
+                delete root;
+                return temp;
+            } else if (root->right == nullptr) {
+                TreeNode* temp = root->left;
+                delete root;
+                return temp;
+            }
+
+            TreeNode* temp = minValueNode(root->right);
+            root->value = temp->value;
+            root->right = removeRec(root->right, temp->value);
+        }
+        return root;
+    }
 };
-
 struct VectorBST {
 
     void insert(int value) {
@@ -111,6 +235,7 @@ private:
 };
 
 int main() {
+    std::cout << "NODE VERSION BST\n";
     BinarySearchTree bst;
 
     bst.insert(50);
@@ -126,6 +251,7 @@ int main() {
     std::cout << '\n';
 
 
+    std::cout << "VECTOR VERSION BST\n";
     VectorBST vecbst;
     bst.insert(10);
     bst.insert(5);

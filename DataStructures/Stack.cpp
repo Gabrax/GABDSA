@@ -4,10 +4,7 @@
 //a stack is a data structure that follows the Last-In-First-Out (LIFO) principle,
 // meaning that the last element added to the stack is the first one to be removed.
 // It is often used for tasks that require maintaining a temporary history or keeping track of function calls, among other applications.
-// C++ provides a way to implement a stack using several different approaches:
 
-
-//Using the Standard Template Library (STL):
 int main() {
     std::stack<int> myStack;
 
@@ -22,7 +19,7 @@ int main() {
 
     return 0;
 }
-//Using Arrays:
+
 const int MAX_SIZE = 100;
 
 class Stack {
@@ -146,9 +143,3 @@ int main() {
 
     return 0;
 }
-//The Stack class maintains a pointer called top that points to the top node of the linked list.
-//The push method adds a new node to the top of the stack.
-//The pop method removes the top node from the stack.
-//The isEmpty method checks if the stack is empty.
-//The peek method returns the value of the top element without removing it.
-//The main function demonstrates the usage of the stack.
