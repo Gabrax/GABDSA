@@ -58,9 +58,7 @@ char*** groupAnagrams(char** strs, int strsSize, int* returnSize, int** returnCo
   while (i < strsSize)
   {
       int j = i;
-      while (j < strsSize && strcmp(table[i].key, table[j].key) == 0) {
-          j++;
-      }
+      while (j < strsSize && strcmp(table[i].key, table[j].key) == 0) j++;
       int groupSize = j - i;
 
       result[groupCount] = malloc(sizeof(char*) * groupSize);
