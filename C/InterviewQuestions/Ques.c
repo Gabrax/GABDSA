@@ -528,10 +528,103 @@ void q30()
     }
   }
 }
+void q31()
+{
+  for(int i=1;i<=5;++i)
+  {
+    for(int j=0;j<i;++j)
+    {
+      printf("*");
+    }
+    printf("\n");
+  }
+}
+void q32()
+{
+  int n;
+  printf("Enter the length:");
+  scanf("%d",&n);
+
+  for(int i=0;i<n;++i)
+  {
+    for(int j=0;j<n;++j)
+    {
+      if(i == 0 || i == n - 1 || j == 0 || j == n-1) printf("*");
+      else printf(" ");
+    }
+    printf("\n");
+  }
+}
+void q33()
+{
+  int count = 5;
+  for(int i=1;i<=5;++i)
+  {
+    for(int k=0;k<count;++k) printf(" ");
+    --count;
+    for(int j=1;j<=i;++j) printf("%d",j);
+    printf("\n");
+  }
+}
+void q34()
+{
+  int n;
+  printf("enter the length:");
+  scanf("%d",&n);
+
+  int spaces = n-4;
+  for(size_t i=1;i<=n;i+=2)
+  {
+    for(size_t i=0;i<spaces;++i) printf(" ");
+    --spaces; 
+    for(size_t j=0;j<i;++j) printf("*");
+    printf("\n");
+  }
+}
+void q35()
+{
+  int n;
+  printf("enter the length:");
+  scanf("%d",&n);
+
+  int spaces;
+
+  printf("%d\n",(n/2)+1);
+
+  for (int i = 1; i <= n; i += 2) {
+      spaces = (n - i) / 2;
+      for (int s = 0; s < spaces; ++s) printf(" ");
+      for (int j = 1; j <= (i/2)+1; ++j) printf("%d", j);
+      for (int j = (i/2); j >= 1; --j) printf("%d", j);
+      printf("\n");
+  }
+
+  for (int i = n - 2; i >= 1; i -= 2) {
+      spaces = (n - i) / 2;
+      for (int s = 0; s < spaces; ++s) printf(" ");
+      for (int j = 1; j <= (i/2)+1; ++j) printf("%d", j);
+      for (int j = (i/2); j >= 1; --j) printf("%d", j);
+      printf("\n");
+  }
+}
+void q36()
+{
+  int start = 65;
+  for(int i=0;i<6;++i)
+  {
+    start = 65;
+    for(int j=1;j<=i;++j)
+    {
+      printf("%c",(char)start);
+      ++start;
+    }
+    printf("\n");
+  }
+}
 
 int main()
 {
-  q30();
+  q36();
 
   return 0;
 }
