@@ -244,7 +244,7 @@ void q20()
   printf("Enter a number 2:");
   scanf("%d",&b);
 
-  printf("GFD of %d and %d is ",a,b);
+  printf("GCD of %d and %d is ",a,b);
   while(a != b)
   {
     if(a > b) a -= b;
@@ -621,10 +621,51 @@ void q36()
     printf("\n");
   }
 }
+void q37()
+{
+  int n;
+  printf("Enter the height:");
+  scanf("%d",&n);
+
+  for(int i=0;i<n;++i)
+  {
+    for(int j=1;j<=i;++j)
+    {
+      if(j == 1 || j == i || i == (n - 1)) printf("*");
+      else printf(" ");
+    }
+    printf("\n");
+  }
+}
+void q38()
+{
+  int n = 5;
+  int spaces = 0;
+  for(int i=n;i>0;--i)
+  {
+    for(int j=1;j<=spaces;++j) printf(" ");
+    ++spaces;
+    for(int j=1;j<=i;++j) printf("%d", j);
+
+    printf("\n");
+  }
+
+}
+void q39()
+{
+  int n = 5;
+  int spaces = 0;
+  for(int i=n;i>0;--i)
+  {
+    for(int j=1;j<=n;++j) printf("%d", j);
+
+    printf("\n");
+  }
+}
 
 int main()
 {
-  q36();
+  q39();
 
   return 0;
 }
