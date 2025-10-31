@@ -662,10 +662,61 @@ void q39()
     printf("\n");
   }
 }
+void q40()
+{
+  int n = 9; 
+  char arr[n][n];
+
+  for (int i = 0; i < n; i++)
+      for (int j = 0; j < n; j++)
+          arr[i][j] = ' ';
+
+  int left = 0, right = n-1; 
+
+  while (left < n && right >= 0) {
+      arr[left][left] = '*';   
+      arr[left][right] = '*';  
+      left++;
+      right--;
+  }
+
+  for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++)
+          printf("%c ", arr[i][j]);
+      printf("\n");
+  }
+}
+void q41()
+{
+  int n = 0;
+  for(int i=1;i<=10;++i)
+  {
+    n += i;
+  }
+
+  printf("%d\n",n);
+
+}
+void q42()
+{
+  int n;
+  printf("Enter the length:");
+  scanf("%d",&n);
+
+  for(int i=0;i<n;++i)
+  {
+    for(int j=0;j<n;++j)
+    {
+      if(i == 0 || i == n - 1 || j == 0 || j == n-1) printf("*");
+      else printf(" ");
+    }
+    printf("\n");
+  }
+}
 
 int main()
 {
-  q39();
+  q41();
 
   return 0;
 }

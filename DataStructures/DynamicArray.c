@@ -52,6 +52,9 @@ int main()
   ARR_PUSH(arr,5.0);
   ARR_PUSH(arr,6.0);
 
+  printf("%d\n", CAST_TO_META(arr)->capacity);
+  printf("%d\n", CAST_TO_META(arr)->length);
+
   printf("%p\n",(void*)&(*CAST_TO_META(arr)));
   printf("%p\n",(void*)&(arr[0]));
   printf("%p\n",(void*)&(arr[1]));
