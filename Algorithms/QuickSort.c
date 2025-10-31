@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// https://en.wikipedia.org/wiki/Quicksort
+
 #define ARR_LEN(arr) (sizeof arr / sizeof arr[0]); 
 
 static inline int cmp(const void* a, const void* b)

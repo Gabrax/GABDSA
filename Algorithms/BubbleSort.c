@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// https://en.wikipedia.org/wiki/Bubble_sort
+
 #define ARR_LEN(arr) (sizeof arr / sizeof arr[0]); 
 
 static inline int cmp(const void* a, const void* b)
