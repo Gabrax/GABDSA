@@ -35,29 +35,39 @@ void* resize(void* arr, size_t new_length, size_t num_elem)
   return (int8_t*)data + sizeof(MetaData);
 }
 
-#define ARR_PUSH(arr,val) ( arr = resize(arr,DA_LEN(arr) + 1,sizeof(*arr)), arr[CAST_TO_META(arr)->length++] = val )
-#define ARR_POP(arr) \
+#define arr_insert(arr,val) ( arr = resize(arr,DA_LEN(arr) + 1,sizeof(*arr)), arr[CAST_TO_META(arr)->length++] = val )
+#define arr_pop(arr) \
     do { \
         if (arr && CAST_TO_META(arr)->length > 0) { \
             CAST_TO_META(arr)->length--; \
             arr = resize(arr, CAST_TO_META(arr)->length, sizeof(*arr)); \
         } \
     } while (0)
-#define ARR_TOP(arr) ( arr[CAST_TO_META(arr)->length-1] )
+#define arr_back(arr) ( arr[CAST_TO_META(arr)->length-1] )
+#define arr_front(arr) ( arr[0] )
+#define arr_free(arr) \
+    do { \
+        if (arr) { \
+            free(CAST_TO_META(arr)); \
+            arr = NULL; \
+        } \
+    } while (0)
 
 int main()
 {
   float* arr = NULL;
 
-  ARR_PUSH(arr,5.0);
-  ARR_PUSH(arr,6.0);
+  arr_insert(arr,5.0);
+  arr_insert(arr,6.0);
 
-  printf("%d\n", CAST_TO_META(arr)->capacity);
-  printf("%d\n", CAST_TO_META(arr)->length);
+  printf("%f\n", arr_back(arr));
+  printf("%f\n", arr_front(arr));
 
   printf("%p\n",(void*)&(*CAST_TO_META(arr)));
   printf("%p\n",(void*)&(arr[0]));
   printf("%p\n",(void*)&(arr[1]));
+
+  arr_free(arr);
 
   return 0;
 }
