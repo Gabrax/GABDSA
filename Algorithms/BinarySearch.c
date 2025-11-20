@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 // https://en.wikipedia.org/wiki/Binary_search
-
 int d_binary_search(int* arr, size_t len, int target)
 {
   int low = 0;
